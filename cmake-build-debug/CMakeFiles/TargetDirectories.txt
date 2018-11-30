@@ -1,0 +1,3 @@
+/Users/mlapin/Desktop/CSCI-2270-Project/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/mlapin/Desktop/CSCI-2270-Project/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/mlapin/Desktop/CSCI-2270-Project/cmake-build-debug/CMakeFiles/CSCI_2270_Project.dir
