@@ -31,6 +31,7 @@ public :
     bool  isEmpty();
     char  getFront();
     char  getRear();
+    char  printDeque();
 };
 
 // Checks whether Deque is full or not.
@@ -177,32 +178,66 @@ char Deque::getRear()
     return W;
 }
 
+char Deque::printDeque() {
+    for (int i = 0; i < 16; i++) {
+        if (arr[i] == '\0') {
+            break;
+        }
+        char nucleic_acid = static_cast<char>(arr[i]);
+        cout << nucleic_acid << " ";
+    }
+}
+
 // Driver program to test above function
 int main()
 {
-    Deque dq(5);
-    cout << "Insert element at rear end  : T \n";
-    dq.insertrear('T');
-
-    cout << "insert element at rear end : C \n";
-    dq.insertrear('C');
-
-    cout << "get rear element " << " "
-         << dq.getRear() << endl;
-
-    dq.deleterear();
-    cout << "After delete rear element new rear"
-         << " become " << dq.getRear() << endl;
-
-    cout << "inserting element at front end \n";
-    dq.insertfront('G');
-
-    cout << "get front element " << " "
-         << dq.getFront() << endl;
-
-    dq.deletefront();
-
-    cout << "After delete front element new "
-         << "front become " << dq.getFront() << endl;
+    Deque strand1(15);
+    Deque strand2(15);
+    char strandOneToInsert[15] = "ACGTTCGA";
+    char strandTwoToInsert[15] = "TACAGGCT";
+    int i = 0;
+    int j = strlen(strandTwoToInsert) - 1;
+    int halfway;
+    //check for odd halfway point division or not because C++
+    cout << j << endl;
+    if (j % 2 == 0) {
+        halfway = (j / 2);
+    }
+    else {
+        halfway = (j+1)/2;
+    }
+    cout << halfway << endl;
+    while (i < halfway ) {
+        strand1.insertfront(strandOneToInsert[i]);
+        strand1.insertrear(strandOneToInsert[j]);
+        strand2.insertfront(strandTwoToInsert[i]);
+        strand2.insertrear(strandTwoToInsert[j]);
+        if (strand1.getFront() == 'A' && strand2.getFront() != 'T') {
+            cout << "There is a mutation at point " << i << " in DNA Strand # 1" << endl;
+        }
+        if (strand1.getFront() == 'C' && strand2.getFront() != 'G') {
+            cout << "There is a mutation at point " << i << " in DNA Strand # 1" << endl;
+        }
+        if (strand1.getFront() == 'G' && strand2.getFront() != 'C') {
+            cout << "There is a mutation at point " << i << " in DNA Strand # 1" << endl;
+        }
+        if (strand1.getFront() == 'T' && strand2.getFront() != 'A') {
+            cout << "There is a mutation at point " << i << " in DNA Strand # 1" << endl;
+        }
+        if (strand1.getRear() == 'A' && strand2.getRear() != 'T') {
+            cout << "There is a mutation at point " << j << " in DNA Strand # 1" << endl;
+        }
+        if (strand1.getRear() == 'C' && strand2.getRear() != 'G') {
+            cout << "There is a mutation at point " << j << " in DNA Strand # 1" << endl;
+        }
+        if (strand1.getRear() == 'G' && strand2.getRear() != 'C') {
+            cout << "There is a mutation at point " << j << " in DNA Strand # 1" << endl;
+        }
+        if (strand1.getRear() == 'T' && strand2.getRear() != 'A') {
+            cout << "There is a mutation at point " << j << " in DNA Strand # 1" << endl;
+        }
+        i++;
+        j--;
+    }
     return 0;
 }
